@@ -10,18 +10,14 @@ const { notFound, errorHandler } = require('./middleware/errorHandler');
 const app  = express();
 const PORT = process.env.PORT || 5000;
 
-/* ---- CORS ---- */
-app.use(cors({
-  origin: [
-    process.env.CLIENT_URL || 'http://localhost:3000',
-    'http://localhost:5500',   // Live Server default
-    'http://127.0.0.1:5500',
-    'http://localhost:8080',
-  ],
-  methods:     ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
-  allowedHeaders: ['Content-Type','Authorization'],
-  credentials: true,
-}));
+
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  })
+);
 
 /* ---- Body Parsing ---- */
 app.use(express.json({ limit: '2mb' }));
