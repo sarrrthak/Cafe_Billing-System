@@ -3,6 +3,7 @@
    Run: node config/initDB.js
    ============================================================ */
 require('dotenv').config();
+console.log("DB_HOST =", process.env.DB_HOST);
 const { pool } = require('./db');
 const bcrypt   = require('bcryptjs');
 
