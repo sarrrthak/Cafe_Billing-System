@@ -8,8 +8,10 @@ const { pool } = require('./db');
 const bcrypt   = require('bcryptjs');
 
 async function initDB() {
+  console.log("Inside initDB()");
+
   const client = await pool.connect();
-  console.log('✅  Connected to PostgreSQL');
+  console.log("Connected to PostgreSQL");
 
   try {
     await client.query('BEGIN');
